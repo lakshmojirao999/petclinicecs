@@ -11,11 +11,9 @@ PetClinic :: a Spring Framework demonstration
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags --%>
 
-    <%--<spring:url value="/resources/images/favicon.png" var="favicon"/>-->
-    <img  src="../static/resources/images/Picture1.png" th:src="@{/resources/images/Picture1.png}" width="150" height="80"
-                alt="petclinic"/></div>
+    <spring:url value="/resources/images/Picture1.png" var="pcicon"/> 
 
-    <%-- <link rel="shortcut icon" type="image/x-icon" href="${favicon}">-->
+    <link rel="shortcut icon" type="image/x-icon" href="${pcicon}"> 
 
     <title>PetClinic</title>
 
