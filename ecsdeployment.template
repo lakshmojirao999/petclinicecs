@@ -1,70 +1,122 @@
 {
   "Description": "Automation of CICD practice using AWS ECS Service.",
   "AWSTemplateFormatVersion":"2010-09-09",
-  "Parameters":{
-    "KeyName":{
-      "Type":"String",
-      "Description":"Name of an existing EC2 KeyPair to enable SSH access to the ECS instances."
-    },
-    "VpcId":{
-      "Type":"String",
-      "Description":"Select a VPC that allows instances to access the Internet."
-    },
-    "Subnet1":{
-      "Type":"String",
-      "Description":"Select at two subnets in your selected VPC."
-    },
-    "Subnet2":{
-      "Type":"String",
-      "Description":"Select at two subnets in your selected VPC."
-    },
-    "DesiredCapacity":{
-      "Type":"String",
-      "Description":"Number of instances to launch in your ECS cluster."
-    },
-    "MaxSize":{
-      "Type":"String",
-      "Description":"Maximum number of instances that can be launched in your ECS cluster."
-    },
-    "InstanceType":{
-      "Description":"EC2 instance type",
-      "Type":"String",  
-      "AllowedValues":[
-        "t2.micro",
-        "t2.small",
-        "t2.medium",
-        "t2.large",
-        "m3.medium",
-        "m3.large",
-        "m3.xlarge",
-        "m3.2xlarge",
-        "m4.large",
-        "m4.xlarge",
-        "m4.2xlarge",
-        "m4.4xlarge",
-        "m4.10xlarge",
-        "c4.large",
-        "c4.xlarge",
-        "c4.2xlarge",
-        "c4.4xlarge",
-        "c4.8xlarge",
-        "c3.large",
-        "c3.xlarge",
-        "c3.2xlarge",
-        "c3.4xlarge",
-        "c3.8xlarge",
-        "r3.large",
-        "r3.xlarge",
-        "r3.2xlarge",
-        "r3.4xlarge",
-        "r3.8xlarge",
-        "i2.xlarge",
-        "i2.2xlarge",
-        "i2.4xlarge",
-        "i2.8xlarge"
-      ],
-      "ConstraintDescription":"Please choose a valid instance type."
-    }
+    "Parameters": {
+        "EmailAddress": {
+            "Description": "Email Address for sending SNS notifications for CodeCommit",
+            "Default": "Prasad.kgv@cognizant.com",
+            "Type": "String"
+        },
+		"RepositoryName":{
+		  "Description":"The name of CodeCommit repo",
+		  "Type":"String",
+		  "Default":"cicddemoecrrepo",
+		  "AllowedPattern":"[\\x20-\\x7E]*",
+		  "ConstraintDescription":"Can contain only ASCII characters."
+		},		
+        "RepositoryBranch": {
+            "Description": "The name of the branch for the CodeCommit repo",
+            "Type": "String",
+            "Default": "master",
+            "AllowedPattern": "[\\x20-\\x7E]*",
+            "ConstraintDescription": "Can contain only ASCII characters."
+        },
+        "GitHubOAuthToken": {
+            "Default": "04f2334ce1018d92357d64c17bb98047619729a5",
+            "Description": "The GitHub Authentication token",
+            "Type": "String"
+        },
+        "GitHubSourceLocation": {
+            "Default": "https://github.com/kgvprasad/petclinicecs",
+            "Description": "The GitHub SourceLocation",
+            "Type": "String"
+        },
+        "GitHubUser": {
+            "Default": "kgvprasad",
+            "Description": "The GitHub User ",
+            "Type": "String"
+        },
+        "GitHubRepoName": {
+            "Default": "newpetclinicecs",
+            "Description": "The GitHub RepoName ",
+            "Type": "String"
+        },
+        "IAMARN": {
+            "Type": "String",
+            "Default": "arn:aws:iam::932833910912:user/Prasad.KGV@cognizant.com",
+            "Description": "Use the full ARN for the IAM user (e.g. arn:aws:iam::123456789101:user/Prasad.KGV)"
+        },
+		"KeyName":{
+		  "Type":"AWS::EC2::KeyPair::KeyName",
+		  "Type": "String",
+		  "Description":"Name of an existing EC2 KeyPair to enable SSH access to the ECS instances."
+		},
+		"VpcId":{
+		  "Type": "String",
+		  "Default": "vpc-4cc7492b",
+		  "Description":"Select a VPC that allows instances to access the Internet."
+		},
+		"SubnetAZ1":{
+		  "Type": "String",
+		  "Default": "subnet-c74d4bfa",
+		  "Description":"Select at two subnets in your selected VPC."
+		},
+		"SubnetAZ2":{
+		  "Type": "String",
+		  "Default": "subnet-dfaab5a9",
+		  "Description":"Select at two subnets in your selected VPC."
+		},		
+		"DesiredCapacity":{
+		  "Type":"String",
+		  "Default":"1",
+		  "Description":"Number of instances to launch in your ECS cluster."
+		},
+		"MaxSize":{
+		  "Type":"String",
+		  "Default":"1",
+		  "Description":"Maximum number of instances that can be launched in your ECS cluster."
+		},
+		"InstanceType":{
+		  "Description":"EC2 instance type",
+		  "Type":"String",
+		  "Default":"t2.micro",
+		  "AllowedValues":[
+			"t2.micro",
+			"t2.small",
+			"t2.medium",
+			"t2.large",
+			"m3.medium",
+			"m3.large",
+			"m3.xlarge",
+			"m3.2xlarge",
+			"m4.large",
+			"m4.xlarge",
+			"m4.2xlarge",
+			"m4.4xlarge",
+			"m4.10xlarge",
+			"c4.large",
+			"c4.xlarge",
+			"c4.2xlarge",
+			"c4.4xlarge",
+			"c4.8xlarge",
+			"c3.large",
+			"c3.xlarge",
+			"c3.2xlarge",
+			"c3.4xlarge",
+			"c3.8xlarge",
+			"r3.large",
+			"r3.xlarge",
+			"r3.2xlarge",
+			"r3.4xlarge",
+			"r3.8xlarge",
+			"i2.xlarge",
+			"i2.2xlarge",
+			"i2.4xlarge",
+			"i2.8xlarge"
+		  ],
+		  "ConstraintDescription":"Please choose a valid instance type."
+		}	
+
   },
   "Mappings":{
     "AWSRegionToAMI":{
