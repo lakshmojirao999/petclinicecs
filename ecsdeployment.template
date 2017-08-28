@@ -22,7 +22,7 @@
             "ConstraintDescription": "Can contain only ASCII characters."
         },
         "GitHubOAuthToken": {
-            "Default": "d9c36a09f06f232ab54f07948d712362451b27de",
+            "Default": "da69d5f8fe09a7c6118edb9bbdaf019828615784",
             "Description": "The GitHub Authentication token",
             "Type": "String"
         },
