@@ -289,7 +289,7 @@
         "HealthCheckProtocol":"HTTP",
         "HealthCheckTimeoutSeconds":5,
         "HealthyThresholdCount":2,
-        "Name":"ECPSTG",
+        "Name":"ECSPTG",
         "Port":8080,
         "Protocol":"HTTP",
         "UnhealthyThresholdCount":2,
