@@ -3,8 +3,8 @@
   "AWSTemplateFormatVersion":"2010-09-09",
     "Parameters": {
 		"KeyName":{
-		  "Type":"AWS::EC2::KeyPair::KeyName",
 		  "Type": "String",
+		  "Default": "awscoe",
 		  "Description":"Name of an existing EC2 KeyPair to enable SSH access to the ECS instances."
 		},
 		"VpcId":{
