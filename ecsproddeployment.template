@@ -109,7 +109,7 @@
     "ECSProdCluster":{
       "Type":"AWS::ECS::Cluster"
     },
-    "EcsiProdSecurityGroup":{
+    "EcsProdSecurityGroup":{
       "Type":"AWS::EC2::SecurityGroup",
       "Properties":{
         "GroupDescription":"ECS Prod Security Group",
