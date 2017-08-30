@@ -30,4 +30,5 @@ artifacts:
     - 'target/petclinic.war'
     - 'appspec.yml'
     - 'ecsdeployment.template'
+    - 'ecsproddeployment.template'
     - 'Dockerfile'
