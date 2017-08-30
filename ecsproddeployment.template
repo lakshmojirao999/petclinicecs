@@ -319,7 +319,7 @@
                 }
             ],
         "DesiredCapacity":{
-          "Ref":"DesiredProdCapacity"
+          "Ref":"DesiredCapacity"
         }
       },
       "CreationPolicy":{
