@@ -227,7 +227,7 @@
             "Value":"30"
           }
         ],
-        "Subnets":[{"Ref":"Subnet1"},{"Ref":"Subnet2"}],
+        "Subnets":[{"Ref":"SubnetAZ1"},{"Ref":"SubnetAZ2"}],
         "SecurityGroups":[
           {
             "Ref":"EcsSecurityGroup"
@@ -301,7 +301,7 @@
     "ECSAutoScalingGroup":{
       "Type":"AWS::AutoScaling::AutoScalingGroup",
       "Properties":{
-        "VPCZoneIdentifier":[ {"Ref": "Subnet1"}, {"Ref" : "Subnet2"}],
+        "VPCZoneIdentifier":[ {"Ref": "SubnetAZ1"}, {"Ref" : "SubnetAZ2"}],
         "LaunchConfigurationName":{
           "Ref":"ContainerInstances"
         },
