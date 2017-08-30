@@ -354,7 +354,7 @@
           "Ref":"InstanceType"
         },
         "IamInstanceProfile":{
-          "Ref":"EC2InstanceProfile"
+          "Ref":"EC2ProdInstanceProfile"
         },
         "KeyName":{
           "Ref":"KeyName"
@@ -367,7 +367,7 @@
                 "#!/bin/bash -xe\n",
                 "echo ECS_CLUSTER=",
                 {
-                  "Ref":"ECSCluster"
+                  "Ref":"ECSProdCluster"
                 },
                 " >> /etc/ecs/ecs.config\n",
                 "yum install -y aws-cfn-bootstrap\n",
