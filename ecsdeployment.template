@@ -9,17 +9,17 @@
 		},
 		"VpcId":{
 		  "Type": "String",
-		  "Default": "vpc-4cc7492b",
+		  "Default": "vpc-15383570",
 		  "Description":"Select a VPC that allows instances to access the Internet."
 		},
 		"SubnetAZ1":{
 		  "Type": "String",
-		  "Default": "subnet-c74d4bfa",
+		  "Default": "subnet-17b3ad4e",
 		  "Description":"Select at two subnets in your selected VPC."
 		},
 		"SubnetAZ2":{
 		  "Type": "String",
-		  "Default": "subnet-dfaab5a9",
+		  "Default": "subnet-a8d90ccc",
 		  "Description":"Select at two subnets in your selected VPC."
 		},		
 		"DesiredCapacity":{
@@ -192,7 +192,7 @@
             "Name":"petclinic",
             "Cpu":"10",
             "Essential":"true",
-            "Image":"932833910912.dkr.ecr.us-east-1.amazonaws.com/cicddemoecrrepo:latest",
+            "Image":"107840965488.dkr.ecr.us-west-1.amazonaws.com/cicddemoecrrepo:latest",
             "Memory":"500",
             "LogConfiguration":{
               "LogDriver":"awslogs",
