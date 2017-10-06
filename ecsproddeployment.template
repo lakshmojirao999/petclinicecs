@@ -345,11 +345,20 @@
             "AMIID"
           ]
         },
-        "SecurityGroups":[
-          {
-            "Ref":"EcsProdSecurityGroup"
-          }
-        ],
+	"NetworkInterfaces": [
+		  {
+			"AssociatePublicIpAddress": "true",
+			"DeviceIndex": "0",
+			"GroupSet": [
+			  {
+				"Ref": "EcsProdSecurityGroup"
+			  }
+			],
+			"SubnetId": {
+			  "Ref": "SubnetAZ1"
+			}
+		  }
+		],
         "InstanceType":{
           "Ref":"InstanceType"
         },
