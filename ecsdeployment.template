@@ -336,6 +336,7 @@
     "ContainerInstances":{
       "Type":"AWS::AutoScaling::LaunchConfiguration",
       "Properties":{
+       "AssociatePublicIpAddress" : true,
         "ImageId":{
           "Fn::FindInMap":[
             "AWSRegionToAMI",
