@@ -4,7 +4,7 @@
     "Parameters": {
 		"KeyName":{
 		  "Type": "String",
-		  "Default": "awscoe",
+		  "Default": "CMS-DEV-LAB-PRIV",
 		  "Description":"Name of an existing EC2 KeyPair to enable SSH access to the ECS instances."
 		},
 		"VpcId":{
