@@ -1,5 +1,5 @@
 # Spring PetClinic Sample Application.
-
+# Zelar Git demo
 Approved by the Spring team, this repo is a fork of the [spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic).
 It allows the Spring community to maintain a Petclinic version with a plain old **Spring Framework configuration**
 and with a **3-layer architecture** (i.e. presentation --> service --> repository).
@@ -13,7 +13,7 @@ The "canonical" implementation is now based on Spring Boot, Thymeleaf and [aggre
 ```
         git clone https://github.com/kgvprasad/newpetclinicapp.git
         cd newpetclinicapp
-        mvn cliean install -Dmaven.test.skip=true
+        mvn clean install -Dmaven.test.skip=true
 
 Then deploy the pwtclinic.war file from target folder genarated on tomcat application server and access the same by using the application URL shown below.
 ```
